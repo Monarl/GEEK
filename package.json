@@ -1,0 +1,16 @@
+{
+  "name": "geek_ecommerce",
+  "version": "1.0.0",
+  "description": "E-commerce database assessment",
+  "main": "questionA.js",  "scripts": {
+    "start": "node questionA.js",
+    "questionA": "node questionA.js",
+    "questionB": "node questionB.js",
+    "questionC": "node questionC.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.6.0"
+  }
+}
