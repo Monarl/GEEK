@@ -7,6 +7,7 @@
     "questionA": "node questionA.js",
     "questionB": "node questionB.js",
     "questionC": "node questionC.js",
+    "questionD": "node questionD.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

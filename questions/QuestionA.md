@@ -65,18 +65,4 @@ Based on the images provided in the assessment, I've designed a simplified relat
   
 **Example:** User information is separated from address information, and payment methods are in their own table.
 
-## Design Decisions
 
-1. **Simplified Product Variants:** 
-   Instead of creating a separate product variants table, I stored size and color directly in the inventory and order items tables to simplify the schema while still capturing the necessary information.
-
-2. **Hierarchical Categories:**
-   Categories can have parent categories, enabling the hierarchical organization shown in the screenshots (like "Giày thời trang" being a subcategory).
-
-3. **Order Pricing:**
-   The order tracks subtotal, shipping fees, and discounts separately to match the checkout process shown in the screenshots.
-
-4. **Direct Address Association:**
-   Addresses are linked directly to users rather than creating a junction table, as this simplifies the schema while still meeting requirements.
-
-This simplified schema satisfies the requirements for an e-commerce system while maintaining appropriate normalization and minimizing complexity, making it suitable for an internship-level project.

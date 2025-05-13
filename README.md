@@ -49,12 +49,17 @@ geek/
    node questionB.js
    ```
 
-5. Run the questionC.js script to calculate monthly average order values:
+5. Run the questionC.js script to calculate average order value by month:
    ```
    node questionC.js
    ```
 
-6. To stop the MySQL container when done:
+6. Run the questionD.js script to calculate customer churn rate:
+   ```
+   node questionD.js
+   ```
+
+7. To stop the MySQL container when done:
    ```
    docker-compose down
    ```
@@ -67,10 +72,10 @@ For a detailed explanation of the database design and normalization techniques u
 ### Question B: Order Insertion
 For the SQL query to insert the given order into the database, please refer to [QuestionB.md](./questions/QuestionB.md).
 
-The query handles inserting a user "assessment" purchasing "KAPPA Women's Sneakers" in yellow, size 36, as specified in the requirements.
-
 ### Question C: Monthly Average Order Value
 For the SQL query to calculate the average order value for each month in the current year, please refer to [QuestionC.md](./questions/QuestionC.md).
 
-This query aggregates order data to show average order values on a monthly basis, providing valuable business insights.
+### Question D: Customer Churn Rate Calculation
+For the SQL query to calculate the customer churn rate, please refer to [QuestionD.md](./questions/QuestionD.md).
+```
 
