@@ -29,3 +29,7 @@ To insert this order properly, we need to ensure that all related data is availa
 9. Update inventory to reflect the purchase
 
 The query uses transaction to ensure data consistency and handles the scenario where some data might already exist in the database.
+
+## SQL Query
+
+For the complete SQL implementation, see [questionB_query.sql](../sql/questionB_query.sql).

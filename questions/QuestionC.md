@@ -26,3 +26,7 @@ To solve this problem, we need to:
 The implementation in `questionC.js` executes this SQL query and displays the results in a formatted table, showing the average order value for each month in the current year.
 
 If there are no orders in the current year, an appropriate message is displayed.
+
+## SQL Query
+
+For the complete SQL implementation, see [questionC_query.sql](../sql/questionC_query.sql).

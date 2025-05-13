@@ -23,3 +23,7 @@ To calculate the customer churn rate, we need to:
    ```
 ## Implementation
 The implementation in `questionD.js` executes this SQL query and displays the churn rate as a percentage. The query uses subqueries to identify the relevant customer groups and calculates the churn rate based on the defined formula.
+
+## SQL Query
+
+For the complete SQL implementation, see [questionD_query.sql](../sql/questionD_query.sql).
