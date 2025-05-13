@@ -95,6 +95,7 @@ CREATE TABLE order_items (
 );
 
 -- Insert some example data
+-- Categories
 INSERT INTO categories (name) VALUES 
 ('Shoes'), 
 ('Clothing'), 
@@ -102,8 +103,74 @@ INSERT INTO categories (name) VALUES
 
 INSERT INTO categories (name, parent_category_id) VALUES 
 ('Fashion Shoes', 1), 
-('Sneakers', 1);
+('Sneakers', 1),
+('T-Shirts', 2),
+('Watches', 3);
 
+-- Products
+INSERT INTO products (name, description, base_price, discount_percent, brand, model, category_id) VALUES
+('Puma Running Shoes', 'Lightweight performance running shoes with cushioned sole', 1250000, 10, 'Puma', 'Velocity Nitro', 5),
+('Nike Air Max', 'Classic Nike Air cushioning', 2200000, 15, 'Nike', 'Air Max 90', 5),
+('Adidas T-Shirt', 'Cotton t-shirt with Adidas logo', 450000, 0, 'Adidas', 'Original Tee', 6),
+('Casio Wristwatch', 'Water resistant stainless steel watch', 1500000, 10, 'Casio', 'MQ-24-7B2', 7);
+
+-- Inventory
+INSERT INTO product_inventory (product_id, size, color, quantity, store_id) VALUES
+(1, '39', 'red', 5, 1),
+(1, '40', 'red', 8, 1),
+(1, '41', 'black', 3, 1),
+(2, '40', 'white', 10, 1),
+(2, '41', 'white', 7, 1),
+(3, 'M', 'blue', 15, 1),
+(3, 'L', 'blue', 12, 1),
+(4, 'ONE', 'silver', 6, 1);
+
+-- Payment Methods
 INSERT INTO payment_methods (name) VALUES
 ('Cash on Delivery'),
-('Online Payment');
+('Online Payment'),
+('Bank Transfer');
+
+-- Users
+INSERT INTO users (name, email, phone) VALUES
+('John Doe', 'john@example.com', '0901234567'),
+('Jane Smith', 'jane@example.com', '0909876543'),
+('Robert Brown', 'robert@example.com', '0912345678');
+
+-- Addresses
+INSERT INTO addresses (user_id, province, district, commune, detail, housing_type, is_default) VALUES
+(1, 'Ho Chi Minh City', 'District 1', 'Ben Nghe', '123 Le Loi Street', 'Apartment', TRUE),
+(1, 'Ho Chi Minh City', 'District 7', 'Tan Phong', '456 Nguyen Huu Tho Street', 'House', FALSE),
+(2, 'Ha Noi', 'Cau Giay', 'Dich Vong', '789 Xuan Thuy Street', 'Apartment', TRUE),
+(3, 'Da Nang', 'Hai Chau', 'Hai Chau 1', '101 Bach Dang Street', 'House', TRUE);
+
+-- Orders (for Questions C and D - some with past dates)
+INSERT INTO orders (user_id, address_id, order_date, status, subtotal, shipping_fee, discount_amount, total_amount, payment_method_id) VALUES
+-- Recent orders (last 6 months)
+(1, 1, DATE_SUB(CURRENT_DATE(), INTERVAL 2 MONTH), 'completed', 1250000, 30000, 125000, 1155000, 1),
+(2, 3, DATE_SUB(CURRENT_DATE(), INTERVAL 1 MONTH), 'completed', 1870000, 30000, 187000, 1713000, 2),
+(1, 1, DATE_SUB(CURRENT_DATE(), INTERVAL 3 MONTH), 'completed', 450000, 30000, 0, 480000, 1),
+
+-- Older orders (6-12 months ago)
+(1, 1, DATE_SUB(CURRENT_DATE(), INTERVAL 8 MONTH), 'completed', 2200000, 30000, 330000, 1900000, 1),
+(2, 3, DATE_SUB(CURRENT_DATE(), INTERVAL 9 MONTH), 'completed', 450000, 30000, 0, 480000, 2),
+(3, 4, DATE_SUB(CURRENT_DATE(), INTERVAL 7 MONTH), 'completed', 1500000, 30000, 150000, 1380000, 1),
+
+-- Orders from last year (for year-over-year comparison)
+(1, 1, DATE_SUB(CURRENT_DATE(), INTERVAL 14 MONTH), 'completed', 980000, 30000, 0, 1010000, 1),
+(2, 3, DATE_SUB(CURRENT_DATE(), INTERVAL 15 MONTH), 'completed', 450000, 30000, 0, 480000, 2);
+
+-- Order Items
+INSERT INTO order_items (order_id, product_id, size, color, quantity, price_at_time) VALUES
+(1, 1, '39', 'red', 1, 1250000),
+(2, 2, '40', 'white', 1, 1870000),
+(3, 3, 'M', 'blue', 1, 450000),
+(4, 2, '41', 'white', 1, 2200000),
+(5, 3, 'L', 'blue', 1, 450000),
+(6, 4, 'ONE', 'silver', 1, 1500000),
+(7, 1, '40', 'red', 1, 1250000),
+(8, 3, 'M', 'blue', 1, 450000);
+
+-- Add FULLTEXT index for search functionality (Question E)
+ALTER TABLE products 
+ADD FULLTEXT IF NOT EXISTS idx_product_search (name, description, brand, model);

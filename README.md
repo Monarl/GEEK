@@ -11,15 +11,21 @@ geek/
 │   └── 01_schema.sql       # Tables creation script
 ├── sql/                    # SQL queries for assessment questions
 │   ├── questionB_query.sql # SQL query for Question B
-│   └── questionC_query.sql # SQL query for Question C
+│   ├── questionC_query.sql # SQL query for Question C
+│   ├── questionD_query.sql # SQL query for Question D
+│   └── questionE_query.sql # SQL query for Question E
 ├── questions/              # Question details and explanations
 │   ├── QuestionA.md        # Explanation of database design and normalization
 │   ├── QuestionB.md        # Explanation of order insertion query
-│   └── QuestionC.md        # Explanation of monthly average order value query
+│   ├── QuestionC.md        # Explanation of monthly average order value query
+│   ├── QuestionD.md        # Explanation of customer churn rate calculation
+│   └── QuestionE.md        # API specifications for RESTful e-commerce API
 ├── package.json            # Node.js project definition
 ├── questionA.js            # Node.js script to display the database schema
 ├── questionB.js            # Node.js script to execute Question B order insertion
-└── questionC.js            # Node.js script to calculate monthly average order values
+├── questionC.js            # Node.js script to calculate monthly average order values
+├── questionD.js            # Node.js script to calculate customer churn rate
+└── questionE.js            # Node.js Express server for RESTful API implementation
 ```
 
 ## Prerequisites
@@ -59,7 +65,12 @@ geek/
    node questionD.js
    ```
 
-7. To stop the MySQL container when done:
+7. Run the questionE.js script to start the RESTful API server:
+   ```
+   node questionE.js
+   ```
+
+8. To stop the MySQL container when done:
    ```
    docker-compose down
    ```
@@ -77,5 +88,8 @@ For the SQL query to calculate the average order value for each month in the cur
 
 ### Question D: Customer Churn Rate Calculation
 For the SQL query to calculate the customer churn rate, please refer to [QuestionD.md](./questions/QuestionD.md).
+
+### Question E-F: RESTful API for E-commerce Platform
+For the API specifications and implementation of a RESTful API for the e-commerce platform, please refer to [QuestionE-F.md](./questions/QuestionE-F.md).
 ```
 
